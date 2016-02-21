@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>GIT_ISSUE_TASK</title>
+</head>
+<h1 align="Center">GIT ISSUE COUNTER APP</h1>
+<h2>Here`s your data for repo {{ data.repo }}</h2>
+<body>
+<table border="1" bgcolor='white'>
+<tr>
+<th>Total No. of OPEN Issues created</th>
+<th>No. of OPEN Issues created in previous 24 Hours.</th>
+<th>No. of OPEN Issues created before 24 Hours but in last 7 days.</th>
+<th>No. of OPEN Issues created before 7 days.</th>
+</tr>
+<tr>
+<td>{{ data.total }}</td>
+<td>{{ data.24_hr }}</td>
+<td>{{ data.less_7_day }}</td>
+<td>{{ data.more_7_day }}</td>
+</tr>
+</table>
+<!--<a href="/download_csv/">Click Here to downlaod File</a>-->
+</body>
+</html>

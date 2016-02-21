@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+GIT_TOKEN=''
 # Application definition
 
 INSTALLED_APPS = [

@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from hc_git_app import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    #url(r'^admin/', admin.site.urls),
+    url(r'^home/', views.home_page),
+    url(r'^process_repo/', views.process_repo),
+    #url(r'^download_csv/', views.download_csv),
 ]

@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>GIT_ISSUE_TASK</title>
+</head>
+<h1 align="Center">GIT ISSUE COUNTER APP</h1>
+<h2>Please Enter the repo name to get the number of ISSUES.</h2>
+<body>
+<form action="/process_repo/" method="post">{% csrf_token %}
+Repo Name:  <input type="text" name="repo_name" placeholder="https://github.com/Shippable/support" />
+<br>
+<br>
+<input type="submit" name="submit" value="Submit" />
+<input type="reset" name="reset"  value="Reset" />
+</form>
+</body>
+</html>
