@@ -12,3 +12,4 @@ API used:<br>
 <b>Future improvement options:</b><br>
 1. Download all the issues in csv with columns as Issue No,Title,body,Created Date,updated date.<br>
 2.Charts to show the required data.<br>
+3. If Requests reached, then we can scrap the issues from the git repo web page.<br>
