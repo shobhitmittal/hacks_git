@@ -8,10 +8,12 @@ import os
 from lib import git_lib
 
 def home_page(request):
+	#TO open the home page
 	template_context = {'settings': settings}
 	return render_to_response('home.html', template_context, context_instance=RequestContext(request))
 
 def process_repo(request):
+	#process git request
 	if request.method=='POST':
 		print request.POST['repo_name']
 		try:
@@ -19,7 +21,9 @@ def process_repo(request):
 			print repo_name[0],repo_name[1]
 		except IndexError:
 			return HttpResponse('Please enter repo path in valid format like <b>https://github.com/Shippable/support</b>')
+		#function to call git processing lib
 		git_issues_data=git_lib.get_git_data(owner=repo_name[0],repo=repo_name[1])
+		
 		if 'error' in git_issues_data:
 			return HttpResponse(git_issues_data['error'])
 		else:

@@ -9,13 +9,16 @@ def convert_to_unixtime(date):
 def get_requests(data_return,url):
 	now_time=int(time.time())
 	r= requests.get(url)
+	#printing api requests remaining per hour.
 	print r.status_code
 	print r.headers['X-RateLimit-Limit']
 	print r.headers['X-RateLimit-Remaining']
+	
 	if r and r.status_code==requests.codes.ok:
 		add_data=r.json()
 		if add_data:
 			for add_data_value in add_data:
+				#logic to get classify issues according to given dates
 				add_data_value_timestamp=(now_time-convert_to_unixtime(add_data_value['created_at']))
 				#print 21,add_data_value_timestamp
 				if add_data_value_timestamp <86400:
@@ -24,6 +27,7 @@ def get_requests(data_return,url):
 					data_return['less_7_day'].append(add_data_value)
 				elif add_data_value_timestamp > 604800:
 					data_return['more_7_day'].append(add_data_value)
+			#Fetching url for pagination and cleaning the obtained string to get only the url
 			pageing_url=r.headers['LINK'].split(',')[0]
 			if pageing_url.find('first')>=0:
 				return False
@@ -45,6 +49,7 @@ def get_git_data(owner="Shippable",repo="support"):
 	data_return['less_7_day']=[]
 	data_return['more_7_day']=[]
 	print settings.GIT_TOKEN
+	#API end-pt
 	url= "https://api.github.com/repos/"+str(owner)+'/'+str(repo)+"/issues?per_page=100&access_token="+str(settings.GIT_TOKEN)
 	url= get_requests(data_return,url)
 	print 47,url
