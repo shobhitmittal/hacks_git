@@ -1,7 +1,7 @@
 # hacks_git
 <br>
 API used:<br>
-1. Github API v3 : api.github.com/repos/<owner>/<repo>+/issues<br>
+1. Github API v3 : api.github.com/repos/<owner>/<repo>/issues<br>
 	<b>Approach Used:</b><br>
 	1.1 Data obtained per request is 100 issues.<br>
 	1.2 First, A request to the api end-point with url parameters per_page=100 and access_token(access_token is required to increase api rate limit to 5000 from 60)<br>
